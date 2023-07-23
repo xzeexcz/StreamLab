@@ -1,0 +1,76 @@
+<header id="gen-header" class="gen-header-style-1 gen-has-sticky" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <div class="gen-bottom-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+              <img class="img-fluid logo" src="images/logo-1.png" alt="streamlab-image">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div id="gen-menu-contain" class="gen-menu-contain">
+                <ul id="gen-main-menu" class="navbar-nav ml-auto">
+                  <li class="menu-item">
+                    <a th:href="@{'/movies'}">Movies</a>
+                  </li>
+
+                  <li class="menu-item">
+                    <a th:href="@{'/videos'}">Video</a>
+
+
+                  </li>
+                  <li class="menu-item">
+                    <a th:href="@{'/contact-us'}">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="gen-header-info-box">
+              <div class="gen-account-holder">
+                <a href="javascript:void(0)" id="gen-user-btn"></a>
+                <div class="gen-account-menu">
+                  <ul class="gen-account-menu">
+                    <!-- Pms Menu -->
+                    <li sec:authorize="isAnonymous()">
+                      <a th:href="@{'/login'}"><i class="fas fa-sign-in-alt"></i>
+                        Login </a>
+                    </li>
+                    <li>
+                      <a th:href="@{'/register'}"><i class="fa fa-user"></i>
+                        Register </a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                      <form th:action="${'/logout'}">
+                      <a th:href="@{'/logout'}"><i class="fas fa-sign-in-alt"></i>
+                        Log out </a>
+                      </form>
+                    </li>
+                    <!-- Library Menu -->
+                    <li sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                      <a th:href="@{'/admin-panel'}"><i class="fa fa-list"></i>
+                        Admin panel </a>
+                    </li>
+                    <li sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                      <a th:href="@{'/upload-video'}"> <i class="fa fa-upload"></i>
+                        Upload Video </a>
+                    </li>
+                    <li sec:authorize="hasAnyRole('ROLE_ADMIN')" >
+                      <a th:href="@{'/upload-movie'}"> <i class="fa fa-upload"></i>
+                        Upload Movie </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

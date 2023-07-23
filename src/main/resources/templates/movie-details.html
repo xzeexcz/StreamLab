@@ -1,0 +1,77 @@
+<html lang="en" xmlns:th = "http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{movie_details_layout.html}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div layout:fragment="movieContent">
+    <!-- Single movie Start -->
+    <section class="gen-section-padding-3 gen-single-movie">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-12">
+                    <div class="gen-single-movie-wrapper style-1">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="gen-video-holder">
+                                    <iframe width="100%" height="550px" src="https://www.youtube.com/embed/"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen id="movie-frame"></iframe>
+                                </div>
+                                <div class="gen-single-movie-info">
+                                    <h2 class="gen-title" id="movieTitle"></h2>
+                                    <div class="gen-single-meta-holder">
+                                        <ul>
+                                            <li class="gen-sen-rating" id="movieRating"></li>
+                                            <li>
+                                                <i class="fas fa-eye">
+                                                </i>
+                                                <span id="movieViews"></span>
+                                            </li>
+                                            <li>
+                                                <img src="/images/like.png" alt="">
+                                                <span id="movieLikes"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span style="display: block;" id="movieDescription"></span>
+                                    <div class="gen-after-excerpt mt-2">
+                                        <div class="gen-extra-data">
+                                            <ul>
+                                                <li>
+                                                    <span>Language :</span>
+                                                    <span id="movieLanguage"></span>
+                                                </li>
+                                                <li>
+                                                    <span>Audio Languages :</span>
+                                                    <span id="movieAudio"></span>
+                                                </li>
+                                                <li><span>Run Time :</span>
+                                                    <span id="movieRunTime"></span>
+                                                </li>
+                                                <li>
+                                                    <span>Release Date :</span>
+                                                    <span id="movieReleaseDate"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Single movie End -->
+
+
+
+    <!-- Back-to-Top start -->
+    <div id="back-to-top">
+        <a class="top" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>
+    </div>
+    <!-- Back-to-Top end -->
+</div>
+</html>

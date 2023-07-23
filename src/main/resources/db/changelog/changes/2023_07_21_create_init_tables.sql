@@ -1,0 +1,97 @@
+CREATE TABLE `t_movies` (
+                            `id` bigint(20) NOT NULL,
+                            `movies_id` varchar(255) DEFAULT NULL,
+                            `movie_snippet_id` bigint(20) DEFAULT NULL,
+                            `movie_statistics_id` bigint(20) DEFAULT NULL,
+                            `movie_thumbnails_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+CREATE TABLE t_movies_genres (
+                                 `movie_id` bigint(20) NOT NULL,
+                                 `genres_id` bigint(20) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_movies_snippet (
+                                  `id` bigint(20) NOT NULL,
+                                  `m_snippet_default_audio_lang` varchar(255) DEFAULT NULL,
+                                  `m_snippet_default_lang` varchar(255) DEFAULT NULL,
+                                  `m_snippet_description` text DEFAULT NULL,
+                                  `m_snippet_title` varchar(255) DEFAULT NULL,
+                                  `m_snippet_rating` double DEFAULT NULL,
+                                  `m_snippet_release_date` datetime DEFAULT NULL,
+                                  `m_snippet_runtime` time DEFAULT current_timestamp()
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_movies_statistics (
+                                     `id` bigint(20) NOT NULL,
+                                     `m_statistics_likes_count` bigint(20) DEFAULT NULL,
+                                     `m_statistics_views_count` bigint(20) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_permissions (
+                               `id` bigint(20) NOT NULL,
+                               `permission_name` varchar(255) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_users (
+                         `id` bigint(20) NOT NULL,
+                         `user_email` varchar(255) DEFAULT NULL,
+                         `user_first_name` varchar(255) DEFAULT NULL,
+                         `user_last_name` varchar(255) DEFAULT NULL,
+                         `user_password` varchar(255) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_videos (
+                          `id` bigint(20) NOT NULL,
+                          `video_id` varchar(255) DEFAULT NULL,
+                          `t_video_snippet_id` bigint(20) DEFAULT NULL,
+                          `t_video_statistics_id` bigint(20) DEFAULT NULL,
+                          `t_video_thumbnails_id` bigint(20) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_thumbnail (
+                             `id` bigint(20) NOT NULL,
+                             `thumbnail_height` int(11) DEFAULT NULL,
+                             `thumbnail_url` varchar(255) DEFAULT NULL,
+                             `thumbnail_width` int(11) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_thumbnails (
+                              `id` bigint(20) NOT NULL,
+                              `default_thumbnail_id` bigint(20) DEFAULT NULL,
+                              `high_thumbnail_id` bigint(20) DEFAULT NULL,
+                              `maxres_thumbnail_id` bigint(20) DEFAULT NULL,
+                              `medium_thumbnail_id` bigint(20) DEFAULT NULL,
+                              `standard_thumbnail_id` bigint(20) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_users_permissions (
+                                     `user_id` bigint(20) NOT NULL,
+                                     `permissions_id` bigint(20) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_video_snippet (
+                                 `id` bigint(20) NOT NULL,
+                                 `v_snippet_default_audio_lang` varchar(20) DEFAULT NULL,
+                                 `v_snippet_default_lang` varchar(20) DEFAULT NULL,
+                                 `v_snippet_description` text DEFAULT NULL,
+                                 `v_snippet_rating` double DEFAULT NULL,
+                                 `v_snippet_release_date` datetime DEFAULT NULL,
+                                 `v_snippet_runtime` time DEFAULT current_timestamp(),
+                                 `v_snippet_title` varchar(200) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_video_statistics (
+                                    `id` bigint(20) NOT NULL,
+                                    `v_statistics_likes_count` bigint(20) DEFAULT NULL,
+                                    `v_statistics_views_count` bigint(20) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_video_thumbnail (
+                                   `id` bigint(20) NOT NULL,
+                                   `v_thumbnail_height` int(11) DEFAULT NULL,
+                                   `v_thumbnail_url` varchar(255) DEFAULT NULL,
+                                   `v_thumbnail_width` int(11) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_video_thumbnails (
+                                    `id` bigint(20) NOT NULL,
+                                    `v_default_thumbnail_id` bigint(20) DEFAULT NULL,
+                                    `v_high_thumbnail_id` bigint(20) DEFAULT NULL,
+                                    `v_maxres_thumbnail_id` bigint(20) DEFAULT NULL,
+                                    `v_medium_thumbnail_id` bigint(20) DEFAULT NULL,
+                                    `v_standard_thumbnail_id` bigint(20) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE t_genres (
+                          `id` bigint(20) NOT NULL,
+                          `genre_action` varchar(20) DEFAULT NULL
+);
+

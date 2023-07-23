@@ -1,0 +1,31 @@
+<!-- js-min -->
+<script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<!-- JS bootstrap -->
+<!-- owl-carousel -->
+<script src="js/owl.carousel.min.js" type="text/javascript"></script>
+<!-- counter-js -->
+<script src="js/jquery.waypoints.min.js" type="text/javascript"></script>
+<script src="js/jquery.counterup.min.js" type="text/javascript"></script>
+<!-- popper-js -->
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/swiper-bundle.min.js" type="text/javascript"></script>
+<!-- Iscotop -->
+<script src="js/isotope.pkgd.min.js" type="text/javascript"></script>
+<script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
+<script src="js/slick.min.js" type="text/javascript"></script>
+<script src="js/streamlab-core.js" type="text/javascript"></script>
+<script src="js/asyncloader.min.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
+<script src="js/videoAjax.js" type="text/javascript"></script>
+<script src="js/movieAjax.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    var movieId = sessionStorage.getItem('movieId');
+    var encodedMovieId = encodeURIComponent(movieId);
+    var movieFrame = document.getElementById('movie-frame');
+    movieFrame.src = "https://www.youtube.com/embed/" + encodedMovieId;
+    getMovieDetails();
+  });
+</script>

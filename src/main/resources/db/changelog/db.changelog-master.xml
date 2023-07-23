@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2023_07_21_create_init_tables" author="adik">
+        <sqlFile
+                dbms="mariadb"
+                encoding="UTF-8"
+                endDelimiter=";"
+                path="db/changelog/changes/2023_07_21_create_init_tables.sql"
+                relativeToChangelogFile="false"
+                stripComments="true"
+                splitStatements="true"
+        />
+    </changeSet>
+    <changeSet id="2023_07_21_alter_table" author="adik">
+        <sqlFile
+                dbms="mariadb"
+                encoding="UTF-8"
+                endDelimiter=";"
+                path="db/changelog/changes/2023_07_21_alter_table.sql"
+                relativeToChangelogFile="false"
+                stripComments="true"
+                splitStatements="true"
+        />
+    </changeSet>
+    <changeSet id="2023_07_21_create_base_data" author="adik">
+        <sqlFile
+                dbms="mariadb"
+                encoding="UTF-8"
+                endDelimiter=";"
+                path="db/changelog/changes/2023_07_21_create_base_data.sql"
+                relativeToChangelogFile="false"
+                stripComments="true"
+                splitStatements="true"
+        />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,55 @@
+<html lang="en" xmlns:th = "http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{add-video-layout.html}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<div layout:fragment="addVideoContent">
+  <div class="gen-breadcrumb" style="background-image: url('images/phonebread.jpeg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <nav aria-label="breadcrumb">
+            <div class="gen-breadcrumb-title">
+              <h1>
+                ADD VIDEO
+              </h1>
+            </div>
+            <div class="gen-breadcrumb-container">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{'/videos'}"><i
+                        class="fas fa-home mr-2"></i>Home</a></li>
+                <li class="breadcrumb-item active">Add Video</li>
+              </ol>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="gen-section-padding-3 gen-library">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <form>
+            <div class="gen-register-form">
+              <h1>Adding video: </h1>
+              <br>
+              <label>Video url from YouTube*</label>
+              <input type="text" id="video-add-url" required>
+              <label>Rating of video*</label>
+              <input type="text" id="video-add-rating" required>
+              <!--              <select class="mb-2" id="genresSelect"></select>-->
+              <label>Run time of video(HH:MM)*</label>
+              <input type="time" id="video-add-time" class="mb-3" required>
+              <br>
+              <div class="form-button">
+                <button type="submit" id="addMovieBtn" onclick="addVideo()" value="Register">Add Video</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</html>

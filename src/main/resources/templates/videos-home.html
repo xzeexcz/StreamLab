@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{video_layout.html}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div layout:fragment="videoContent">
+    <!-- breadcrumb -->
+            <div class="gen-breadcrumb" style="background-image: url('images/phonebread.jpeg');">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <nav aria-label="breadcrumb">
+                                <div class="gen-breadcrumb-title">
+                                    <h1>
+                                        Videos
+                                    </h1>
+                                </div>
+                                <div class="gen-breadcrumb-container">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a th:href="@{'/movies'}"><i
+                                                    class="fas fa-home mr-2"></i>Home</a></li>
+                                        <li class="breadcrumb-item active">Video</li>
+                                    </ol>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- breadcrumb -->
+
+            <!-- Infinite-Scroll -->
+            <section class="gen-section-padding-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row" id="videoContainer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Infinite-Scroll -->
+
+            <!-- Back-to-Top start -->
+            <div id="back-to-top">
+                <a class="top" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>
+            </div>
+            <!-- Back-to-Top end -->
+</div>
+</html>
