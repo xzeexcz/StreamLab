@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Transactional
 public interface PermissionsRepository extends JpaRepository<Permission, Long> {
+    Permission findByRole(String role);
 }

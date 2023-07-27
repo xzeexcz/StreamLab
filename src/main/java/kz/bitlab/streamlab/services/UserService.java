@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -49,27 +50,30 @@ public class UserService implements UserDetailsService {
     }
 
     public User addUser(String email, String password, String firstName, String lastName) {
-        if (email == null ||  firstName == null || lastName == null) {
+        if (email == null || firstName == null || lastName == null) {
             return null;
         } else {
-            User user = new User();
-            user.setFirstName(firstName);
-            user.setLastName(lastName);
-            user.setEmail(email);
-            user.setPassword(passwordEncoder.encode(password));
-            User checkUser = userRepository.findByEmail(user.getEmail());
-            if(checkUser == null) {
-                Permission permission = new Permission();
-                permission.setRole("ROLE_USER");
-                List<Permission> permissions = new ArrayList<>();
-                permissions.add(permission);
-                user.setPermissions(permissions);
-                permissionsRepository.save(permission);
+            User checkUser = userRepository.findByEmail(email);
+            if (checkUser == null) {
+                User user = new User();
+                user.setFirstName(firstName);
+                user.setLastName(lastName);
+                user.setEmail(email);
+                user.setPassword(passwordEncoder.encode(password));
+
+                // Check if default permission "ROLE_USER" exists, otherwise create it
+                Permission defaultPermission = permissionsRepository.findByRole("ROLE_USER");
+                if (defaultPermission == null) {
+                    defaultPermission = new Permission();
+                    defaultPermission.setRole("ROLE_USER");
+                    permissionsRepository.save(defaultPermission);
+                }
+
+                user.setPermissions(Collections.singletonList(defaultPermission));
                 return userRepository.save(user);
-            } else {
-                return null;
             }
         }
+        return null;
     }
 
     public ResponseEntity<String > updatePassword(String newPassword, String oldPassword, String email) {
@@ -109,10 +113,10 @@ public class UserService implements UserDetailsService {
         if(user!=null) {
             List<Permission> permissions = new ArrayList<>();
             for(String role : roles) {
-                Permission permission = new Permission();
-                permission.setRole(role);
-                permissionsRepository.save(permission);
-                permissions.add(permission);
+                Permission permission = permissionsRepository.findByRole(role);
+                if(permission!=null) {
+                    permissions.add(permission);
+                }
             }
             user.getPermissions().clear();
             user.getPermissions().addAll(permissions);

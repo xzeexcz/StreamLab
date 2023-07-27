@@ -26,7 +26,6 @@ public class MovieServiceImpl implements MovieService {
     private final MovieRepository movieRepository;
     private final MovieSerialization movieSerialization;
     private final MovieMapper movieMapper;
-    private final GenresRepository genresRepository;
 
     @Override
     public MovieDTO addMovieToDataBase(String videoId,

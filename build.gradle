@@ -39,6 +39,7 @@ dependencies {
 	implementation 'com.squareup.okhttp3:okhttp:3.14.9'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 	implementation group: 'org.webjars', name: 'jquery', version: '3.6.0'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.liquibase:liquibase-core'
 	testImplementation 'org.springframework.security:spring-security-test'
